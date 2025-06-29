@@ -97,3 +97,49 @@
     });
     
 })(jQuery);
+
+// form validation
+
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+
+//   google sheet  Code 
+
+  const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+  // Handle Form Submission
+ document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = new FormData(this);
+  const data = Object.fromEntries(form.entries());
+
+  try {
+  
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwSzReKsu1bQJP5-kq1YJBMkADuG7maoPjgSvy41gzvlIFOUvTqn10X6Wqq7-rEBwDptg/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.text();
+    console.log("📝 Server replied:", result);
+  } catch (error) {
+    console.error("❌ Fetch error:", error);
+    alert("Failed to send message. Please check your connection.");
+  }
+});
+
+
+
