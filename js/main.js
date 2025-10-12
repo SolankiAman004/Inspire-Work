@@ -137,7 +137,7 @@
     console.log("📝 Server replied:", result);
   } catch (error) {
     console.error("❌ Fetch error:", error);
-    alert("Failed to send message. Please check your connection.");
+    alert("You are sending Request.");
   }
 });
 
