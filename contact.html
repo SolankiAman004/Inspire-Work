@@ -88,14 +88,14 @@
                 <div class="dropdown-menu m-0">
                    <a href="portfolio.html" class="dropdown-item">Our Portfolio</a>
                   <a href="Faq.html" class="dropdown-item">FAQ</a>
-                  <a href="quote.html" class="dropdown-item">Get in Touch</a>
+                  <a href="contact.html" class="dropdown-item">Get in Touch</a>
                   <a href="team.html" class="dropdown-item">Our Team</a>
                   <a href="404.html" class="dropdown-item">404 Page</a>
                 </div>
               </div>
               <a href="contact.html" class="nav-item nav-link active">Contact Us</a>
             </div>
-            <a href="" class="btn btn-dark rounded-pill text-white py-2 px-4 ms-lg-5">Get in Touch</a>
+            <a href="contact.html" class="btn btn-dark rounded-pill text-white py-2 px-4 ms-lg-5">Talk To Us</a>
           </div>
         </nav>
 
@@ -113,7 +113,7 @@
     <div class="row justify-content-center">
       
       <!-- Contact Form -->
-      <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+      <div class="col-lg-6 col-md-6 col-sm-12 wow fadeInUp mb-sm-5 mb-md-3" data-wow-delay="0.3s">
         <h4 class="mb-4 fs-5">
           If You Have Any Query, Please Feel Free to Contact Us
         </h4>
@@ -196,22 +196,43 @@
         </form>
 
         <!-- ✅ Bootstrap Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+         <!-- Success Modal -->
+      <!-- Success Modal -->
+<div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content text-center">
-      <div class="modal-header border-0">
-        <h5 class="modal-title w-100" id="successModalLabel">✅ Thank You!</h5>
+    <div class="modal-content border-0 shadow-lg rounded-4 animate-modal overflow-hidden">
+      
+      <!-- Modal Header -->
+      <div class="modal-header border-1 bg-primary rounded-top-4">
+        <h1 class="modal-title fs-5 fw-bold text-black
+         d-flex align-items-center gap-2" id="successModalLabel">
+          <i class="bi bi-check-circle-fill text-success fs-4"></i> Thank You!
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Your message has been sent successfully.
+      
+      <!-- Modal Body -->
+      <div class="modal-body text-start w-100 text-muted fs-6">
+        Your message has been sent successfully.<br>
+        We’ll get back to you soon!
       </div>
+      
+      <!-- Modal Footer -->
+      <div class="modal-footer border-1 justify-content-end rounded-bottom-4 ">
+        <button type="button" class="btn btn-primary px-4 px-2 rounded-4" data-bs-dismiss="modal">
+          OK
+        </button>
+      </div>
+
     </div>
   </div>
 </div>
+
+
       </div>
 
       <!-- Google Map -->
-      <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="col-lg-6 col-md-6 col-sm-12 ">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.748423512!2d72.41492510525848!3d23.020474104691324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1738049547965!5m2!1sen!2sin"
           width="100%" height="100%" style="border: 0"
@@ -236,8 +257,8 @@
                       <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                       <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
                       <div class="d-flex pt-2 text-light small">
-    <span>Social profiles coming soon</span>
-</div>
+                      <span>Social profiles coming soon</span>
+                  </div>
 
                   </div>
                   <div class="col-md-6 col-lg-2">
@@ -245,7 +266,7 @@
                       <a class="btn btn-link" href="about.html">About Us</a>
                       <a class="btn btn-link" href="contact.html">Contact Us</a>
                       <a class="btn btn-link" href="service.html">Services</a>
-                       <a class="btn btn-link" href="quote.html">Get In Touch</a>
+                       <a class="btn btn-link" href="contact.html">Get In Touch</a>
                       
                   </div>
                   <div class="col-md-6 col-lg-4">
@@ -288,9 +309,7 @@
                   <div class="row">
                       <div class="col-md-12 col-lg-12 col-sm-12 text-center text-md-center mb-3 mb-md-0">
                           &copy; <a class="border-bottom" href="#">All Right Reserved. 
-            
-            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-            Designed By <a class="border-bottom" href="#">Inspire Works</a>
+                          Designed By <a class="border-bottom" href="#">Inspire Works</a>
                       </div>
                      
                   </div>
@@ -325,6 +344,48 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!this.checkValidity()) {
+    this.classList.add('was-validated');
+    return;
+  }
+
+  const formData = {
+    fullName: document.getElementById("fullName").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    subject: document.getElementById("subject").value.trim(),
+    message: document.getElementById("message").value.trim()
+  };
+
+  // ✅ Replace with your Google Apps Script Web App URL
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxXBtNeE3u48XD1MheVUKnCqNBrkVKoLWZ8IsBA_hVNxuavU4p9QWov1dGjoIpVLixA/exec";
+
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  })
+  .then(() => {
+    // Show success modal
+    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+    modal.show();
+
+    // Reset form
+    document.getElementById("contactForm").reset();
+    document.getElementById("contactForm").classList.remove('was-validated');
+  })
+  .catch((error) => {
+    alert("Error! Please try again later.");
+    console.error('Error!', error.message);
+  });
+});
+    </script>
+
 
 
     <!-- Template Javascript -->
