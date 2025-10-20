@@ -544,47 +544,54 @@
       background-color: #f8f9fa;
     }
 
-    .card {
-      border: none;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
+    .website-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
+.website-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
 
-    .card img {
-      height: 200px;
-      object-fit: cover;
-    }
+.image-container {
+  height: 300px; /* Fixed window height for scroll preview */
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
 
-    .card-body {
-      background: #fff;
-      padding: 1.5rem;
-    }
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 5s ease-in-out;
+}
 
-    .card-title {
-      color: #333;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+/* 🔥 Smooth “scroll up” on hover */
+.website-card:hover .image-container img {
+  transform: translateY(-70%);
+}
 
-    .card-text {
-      font-size: 0.95rem;
-      color: #555;
-      /* margin-bottom: 15px; */
-      min-height: 130px;
-    }
+.card-body {
+  padding: 1rem 1.25rem;
+}
 
-    @media (max-width: 575px) {
-      .card img {
-        height: 180px;
-      }
-    }
+.card-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+  
 
     /* modal css */
 
@@ -615,3 +622,24 @@
   }
 
   
+/* faq icons */
+
+.custom-img-small {
+  max-width: 60%; /* adjust the size as needed (e.g., 50%, 70%, etc.) */
+  height: auto;
+}
+
+@media (min-width: 992px) {
+  .custom-img-small {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 991px) {
+  .custom-img-small {
+    max-width: 80%;
+  }
+}
+
+/* css */
+
